@@ -1,0 +1,177 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>EmpInfo</h4>
+            <div class="mb-3">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary box3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    EmpAdd
+                </button>
+
+ <!-- Modal  employee adding-------------------------------------------------------------------------------- -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabe">Employee-Add-Form</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body box77 box7">
+<!-- Employee Adding form blok------------------------------------------------------------------------------------- -->
+                                <form [formGroup]="EmployeeAdd" (ngSubmit)="loginUser()">
+                                    <div class="col-md-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                            formControlName="email" class="mb-3">
+                                        
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="exampleInputPassword1" class="form-label">code</label>
+                                        <input type="text" id="box1" formControlName="code">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="exampleInputPassword1" class="form-label">Name</label>
+                                        <input type="text" id="box2" formControlName="name">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="exampleInputPassword1" class="form-label">phone</label>
+                                        <input type="tel" id="box3" formControlName="phone">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="exampleInputPassword1" class="form-label">Taxcode</label>
+                                        <input type="number" id="box4" formControlName="taxcode">
+                                    </div>
+                  
+                                    <div class="col-md-3">
+                                        <label for="exampleInputPassword1" class="form-label">CreditLimit</label>
+                                        <input type="number" id="box4" formControlName="creditlimit">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary boxx btn-lg">Submit</button>
+
+                                </form>
+
+                            </div>
+                            <!-- <div class="modal-footer position">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+<!-- Employee show table block ------------------------------------------------------------------------------------------->
+        <div class="row">
+            <div >
+                <div class="table" style="width: 100%;">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                Employeename
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>CerditeLimit</th>
+                            <th>Taxcode</th>
+                            <th>
+                                Remove
+                            </th>
+                            <th>
+                                Edit
+                            </th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of allEmployee ;index as i">
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.creditlimit}}</td>
+                            <td>{{item.taxcode}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="RemoveEmp(item.code)"> Delete</button>
+
+                            </td>
+                            <td>
+                                <!-- <button (click)="updateaa(item)">updddd</button> -->
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal2" (click)="updateaa(item)">
+                                    Edit
+                                </button>
+ <!-- Modal  for Update the employee --------------------------------------------------------------------------------------------------->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title box2" id="exampleModalLabel">UpdateForm</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body box7">
+  <!------- Update Employeeblock--------------------------------------------------------------------------------------------------------- -->
+                                                <form [formGroup]="UpdateForm" (ngSubmit)="updateUser1()">
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Email
+                                                            address</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                                            aria-describedby="emailHelp" formControlName="email"
+                                                            name=[value]>
+                                                        <div id="emailHelp" class="form-text">We'll never share your
+                                                            email with anyone else.</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">Name</label>
+                                                        <input type="text" class="form-control" id="box2"
+                                                            formControlName="name">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">phone</label>
+                                                        <input type="tel" class="form-control" id="box3"
+                                                            formControlName="phone">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">Role</label>
+                                                        <input type="text" class="form-control" id="box4"
+                                                            formControlName="role">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">Code</label>
+                                                        <input type="text" class="form-control" id="box5"
+                                                            formControlName="code">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary box5">UpdateEmp</button>
+                                                </form>
+                                            </div>
+                                            <!-- <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                </div>
+            </div>
+        </div>
+    </div>

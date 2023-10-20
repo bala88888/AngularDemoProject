@@ -1,0 +1,56 @@
+.btn btn-primary box1{
+    margin-bottom: 5px;
+}
+.container{
+    border: 1px solid red;
+    height: 500px;
+    width: 650px;
+    background-image: linear-gradient(to right, rgb(168, 146, 146) , yellow);
+}
+h4{
+    text-align: center;
+    margin-left: 200px;
+    background-color: beige;
+    text-decoration: underline;
+}
+input{
+    text-align: center;
+}
+.box3{
+    margin-left: 200px;
+}
+.box2{
+    text-align: center;
+    margin-left: 200px;
+}
+.box5{
+    text-align: center;
+    margin-left: 200px; 
+}
+.box7{
+    background-image: linear-gradient(to right, rgb(168, 146, 146) , rgb(142, 175, 32));
+}
+.box2{
+    background-color: beige;
+    text-decoration: underline;
+}
+.boxx{
+    margin-top:10px;
+    margin-bottom:200px;
+    width: 300px;
+}
+.position{
+    margin-left: 200px;
+}
+.box77{
+    text-align: center;
+    justify-content: center;
+}
+#exampleModalLabe{
+    text-align: center;
+    justify-content: center;
+    margin-left: 170px;
+}
+input{
+    width: 300px;
+}
